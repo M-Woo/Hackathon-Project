@@ -1,0 +1,1479 @@
+  [1m[35m (26.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3168096134847382095);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170406013634)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying, "password" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170406013634"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-04-06 01:37:00 UTC], ["updated_at", 2017-04-06 01:37:00 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3168096134847382095)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/" for ::1 at 2017-04-05 19:10:18 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb (3.9ms)
+Completed 200 OK in 25ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-05 19:16:26 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb (2.9ms)
+Completed 200 OK in 10ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-05 19:24:38 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb (3.3ms)
+Completed 200 OK in 11ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-05 22:18:51 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 981ms (ActiveRecord: 7.6ms)
+
+
+  
+ActionView::Template::Error (Missing partial partials/_flash with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/MarkChiWoo/CODE/01_Template/auth-ruby-rails-template/app/views"
+):
+    18:   </head>
+    19: 
+    20:   <body>
+    21:   	<%= render "partials/flash" %>
+    22:     <%= yield %>
+    23:   </body>
+    24: </html>
+  
+app/views/layouts/application.html.erb:21:in `_app_views_layouts_application_html_erb__2551186296354753209_70226579690280'
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (13.2ms)
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (104.7ms)
+Started GET "/" for ::1 at 2017-04-05 22:19:31 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.3ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 39ms (Views: 30.4ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/" for ::1 at 2017-04-05 22:19:34 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 28ms (Views: 24.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-05 22:19:36 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.3ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 27ms (Views: 23.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-05 22:20:18 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 25ms (Views: 21.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2017-04-05 22:20:20 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (203.5ms)
+Completed 500 Internal Server Error in 213ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `“email”' for #<#<Class:0x007fbdcc2bab88>:0x007fbdcc2b3f68>):
+    1: <h1>Login</h1>
+    2: <%= form_for :user do |f| %>
+    3: 	<%= f.email_field :email, placeholder: “email” %>
+    4:   	<%= f.password_field :password, placeholder: “password” %>
+    5: 	<%= f.submit %>
+    6: <% end %>
+  
+app/views/sessions/new.html.erb:3:in `block in _app_views_sessions_new_html_erb__823017694766226508_70226575491360'
+app/views/sessions/new.html.erb:2:in `_app_views_sessions_new_html_erb__823017694766226508_70226575491360'
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (18.1ms)
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (112.0ms)
+Started GET "/login" for ::1 at 2017-04-05 22:21:55 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (11.5ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 43ms (Views: 39.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-05 22:21:57 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 29ms (Views: 25.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-05 22:23:23 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 27ms (Views: 23.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for ::1 at 2017-04-05 22:23:25 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 30ms (Views: 27.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for ::1 at 2017-04-05 22:23:33 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mKwwRWygI9CSfSAIKLvxF/8DOhS65I/IEAfNGS9YZlS72tW/Fg6M+SqO3MXO0ONpovIQEDymECWWY/oymTVGNA==", "user"=>{"email"=>"mark@mark.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mark@mark.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 8ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/login" for ::1 at 2017-04-05 22:23:33 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (6.1ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 31ms (Views: 27.3ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/" for ::1 at 2017-04-05 22:32:55 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (1.6ms)
+  Rendered partials/_flash.html.erb (0.8ms)
+Completed 200 OK in 62ms (Views: 45.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-05 22:32:56 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2017-04-05 22:32:56 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.5ms)
+  Rendered partials/_flash.html.erb (0.6ms)
+Completed 200 OK in 31ms (Views: 28.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2017-04-05 22:33:09 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.1ms)
+  Rendered partials/_flash.html.erb (0.8ms)
+Completed 200 OK in 45ms (Views: 39.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2017-04-05 22:33:12 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.3ms)
+  Rendered partials/_flash.html.erb (0.8ms)
+Completed 200 OK in 40ms (Views: 35.6ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "mark@mark.mark"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "mark@mark.mark"], ["password_digest", "$2a$10$TMTIwiDV37VOe6UwgamcteolOCsnDXJQ4ZwGSGmLGejqY3u7gAogy"], ["created_at", 2017-04-06 05:40:26 UTC], ["updated_at", 2017-04-06 05:40:26 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/login" for ::1 at 2017-04-05 22:40:44 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9IlLhH+3C9VSwHhJCV2waSCLuX8RuozRcMCMeb9FRJopY6M9+5so24RgJH3kei5Ga3C6Hxy7Ura1cG7eU2lMfA==", "user"=>{"email"=>"mark@mark.mark", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mark@mark.mark"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 129ms (ActiveRecord: 12.5ms)
+
+
+Started GET "/" for ::1 at 2017-04-05 22:40:44 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (2.0ms)
+  Rendered partials/_flash.html.erb (0.7ms)
+Completed 200 OK in 83ms (Views: 74.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2017-04-05 22:42:41 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.6ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 41ms (Views: 34.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for ::1 at 2017-04-05 22:43:06 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+  Rendered partials/_flash.html.erb (0.8ms)
+Completed 200 OK in 47ms (Views: 41.8ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/login" for ::1 at 2017-04-05 22:43:14 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JemhUd79hpeft94OWYCSONpSh7EHILVcCKepd+X6wSYGn0SrpFMpvidEIsO/64BGh6OttYFiKrGOw55cU5fhRg==", "user"=>{"email"=>"mark@mark.mark", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mark@mark.mark"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 73ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2017-04-05 22:43:14 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.3ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 34ms (Views: 30.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 00:10:21 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (3.6ms)
+  Rendered partials/_flash.html.erb (1.2ms)
+Completed 200 OK in 97ms (Views: 78.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 00:10:23 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 00:10:23 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (2.0ms)
+  Rendered partials/_flash.html.erb (0.7ms)
+Completed 200 OK in 67ms (Views: 28.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 00:10:33 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.7ms)
+  Rendered partials/_flash.html.erb (2.1ms)
+Completed 200 OK in 45ms (Views: 37.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/login" for ::1 at 2017-04-06 00:10:35 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vB0pX6w1fchofQmCl6X7o/MU/g0QymR6P4KXm7/4NqWfa8yl1pvS4dCO9U9xzundruXUCZaI+5e55qCwCZUWxQ==", "user"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 8ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 00:10:35 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+  Rendered partials/_flash.html.erb (2.5ms)
+Completed 200 OK in 32ms (Views: 28.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 05:38:19 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (301.7ms)
+Completed 500 Internal Server Error in 327ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `bootstrap_form_for' for #<#<Class:0x007fbdcccbd4c8>:0x007fbdcccb6858>):
+    1: <h1>Login</h1>
+    2:  <%= bootstrap_form_for :user do |f| %>
+    3: 	  <%= f.email_field :email, placeholder: " email" %>
+    4: 	  <%= f.password_field :password, placeholder: "password" %>
+    5: 	  <%= f.submit "Login" %>
+  
+app/views/sessions/new.html.erb:2:in `_app_views_sessions_new_html_erb__823017694766226508_70226580731220'
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.6ms)
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (99.1ms)
+Started GET "/login" for ::1 at 2017-04-06 05:38:25 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (124.3ms)
+Completed 500 Internal Server Error in 133ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `bootstrap_form_for' for #<#<Class:0x007fbdcccbd4c8>:0x007fbdcb3d6e50>):
+    1: <h1>Login</h1>
+    2:  <%= bootstrap_form_for :user do |f| %>
+    3: 	  <%= f.email_field :email, placeholder: " email" %>
+    4: 	  <%= f.password_field :password, placeholder: "password" %>
+    5: 	  <%= f.submit "Login" %>
+  
+app/views/sessions/new.html.erb:2:in `_app_views_sessions_new_html_erb__823017694766226508_70226567675000'
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.8ms)
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/MarkChiWoo/.rvm/gems/ruby-2.4.1@global/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (92.6ms)
+Started GET "/login" for ::1 at 2017-04-06 05:38:55 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (24.4ms)
+  Rendered partials/_flash.html.erb (1.5ms)
+Completed 200 OK in 3630ms (Views: 3608.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 05:40:55 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 49ms (Views: 41.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 05:40:55 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.3ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 30ms (Views: 26.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 06:23:19 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.9ms)
+  Rendered partials/_flash.html.erb (1.5ms)
+Completed 200 OK in 1868ms (Views: 1849.2ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/user" for ::1 at 2017-04-06 06:23:25 -0700
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user/index.html.erb within layouts/application
+  Rendered user/index.html.erb within layouts/application (6.9ms)
+  Rendered partials/_flash.html.erb (0.6ms)
+Completed 200 OK in 46ms (Views: 40.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/user" for ::1 at 2017-04-06 06:23:42 -0700
+Processing by UserController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmdhAVcJNkEObpCJ3tUhEiFT7ggnsf8osix/fpRWpo9zjYm40yUVT9jOzL0z8r89aqjtaCqwIU93nJ3ZeHquaQ==", "user"=>{"name"=>"Mark", "email"=>"mark@email.com", "password"=>"[FILTERED]"}, "commit"=>"Save User"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (2.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "mark@email.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "mark@email.com"], ["password_digest", "$2a$10$WoQebyv44Mc8YuPflaJ4juEQr/inDNBOTIiTWwA00Zfp8NK46ORVS"], ["created_at", 2017-04-06 13:23:43 UTC], ["updated_at", 2017-04-06 13:23:43 UTC], ["name", "Mark"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 122ms (ActiveRecord: 21.6ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 06:23:43 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_flash.html.erb (0.6ms)
+Completed 200 OK in 39ms (Views: 35.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 06:30:41 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (2.4ms)
+  Rendered partials/_flash.html.erb (0.7ms)
+Completed 200 OK in 137ms (Views: 112.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/user" for ::1 at 2017-04-06 06:30:42 -0700
+Processing by UserController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user/index.html.erb within layouts/application
+  Rendered user/index.html.erb within layouts/application (5.6ms)
+  Rendered partials/_flash.html.erb (0.6ms)
+Completed 200 OK in 50ms (Views: 43.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 06:30:45 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 06:30:45 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_flash.html.erb (0.7ms)
+Completed 200 OK in 38ms (Views: 33.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:30:46 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+  Rendered partials/_flash.html.erb (0.6ms)
+Completed 200 OK in 40ms (Views: 35.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/user" for ::1 at 2017-04-06 06:30:53 -0700
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user/index.html.erb within layouts/application
+  Rendered user/index.html.erb within layouts/application (2.7ms)
+  Rendered partials/_flash.html.erb (0.7ms)
+Completed 200 OK in 45ms (Views: 39.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 06:30:56 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 06:30:56 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.5ms)
+  Rendered partials/_flash.html.erb (0.8ms)
+Completed 200 OK in 42ms (Views: 38.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:30:57 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.7ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 44ms (Views: 39.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 06:53:59 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (2.2ms)
+  Rendered partials/_navbar.html.erb (0.7ms)
+  Rendered partials/_flash.html.erb (1.0ms)
+Completed 200 OK in 80ms (Views: 64.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 06:55:06 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.6ms)
+  Rendered partials/_navbar.html.erb (1.0ms)
+  Rendered partials/_flash.html.erb (0.8ms)
+Completed 200 OK in 57ms (Views: 49.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:55:26 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (29.6ms)
+  Rendered partials/_navbar.html.erb (0.6ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 77ms (Views: 70.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:55:39 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  Rendered partials/_navbar.html.erb (0.4ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 43ms (Views: 38.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:55:41 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  Rendered partials/_navbar.html.erb (0.4ms)
+  Rendered partials/_flash.html.erb (0.6ms)
+Completed 200 OK in 33ms (Views: 28.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:55:58 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 40ms (Views: 36.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:55:59 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.8ms)
+Completed 200 OK in 35ms (Views: 31.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:56:19 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 38ms (Views: 33.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:56:31 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 39ms (Views: 35.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:56:33 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 36ms (Views: 33.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/user" for ::1 at 2017-04-06 06:56:34 -0700
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user/index.html.erb within layouts/application
+  Rendered user/index.html.erb within layouts/application (3.9ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 41ms (Views: 36.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 06:56:36 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 06:56:36 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 45ms (Views: 41.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 06:57:05 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.7ms)
+Completed 200 OK in 33ms (Views: 29.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:57:07 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+  Rendered partials/_navbar.html.erb (0.4ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 40ms (Views: 36.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/user" for ::1 at 2017-04-06 06:57:09 -0700
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user/index.html.erb within layouts/application
+  Rendered user/index.html.erb within layouts/application (2.3ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 38ms (Views: 34.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 06:57:11 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 06:57:11 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.5ms)
+  Rendered partials/_navbar.html.erb (0.6ms)
+  Rendered partials/_flash.html.erb (0.8ms)
+Completed 200 OK in 38ms (Views: 34.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:57:12 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+  Rendered partials/_navbar.html.erb (0.7ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 51ms (Views: 47.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/user" for ::1 at 2017-04-06 06:57:13 -0700
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user/index.html.erb within layouts/application
+  Rendered user/index.html.erb within layouts/application (3.0ms)
+  Rendered partials/_navbar.html.erb (0.4ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 39ms (Views: 35.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:57:45 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+  Rendered partials/_navbar.html.erb (0.8ms)
+  Rendered partials/_flash.html.erb (1.0ms)
+Completed 200 OK in 66ms (Views: 61.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/login" for ::1 at 2017-04-06 06:57:56 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ESU+mZhrvNeZ/8nvI2jh8tDvUHiqAnp5789EhIVDxX0HHQST6r++PwvMG0INpJPmUXdcmtTLXiTcmbQHrWsCyw==", "user"=>{"email"=>"mark@email.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mark@email.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 82ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 06:57:56 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 30ms (Views: 25.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 06:57:59 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 06:57:59 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.7ms)
+Completed 200 OK in 36ms (Views: 32.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/user" for ::1 at 2017-04-06 06:58:00 -0700
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user/index.html.erb within layouts/application
+  Rendered user/index.html.erb within layouts/application (2.5ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (1.0ms)
+Completed 200 OK in 43ms (Views: 37.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:58:01 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+  Rendered partials/_navbar.html.erb (0.7ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 43ms (Views: 37.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:58:32 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 31ms (Views: 27.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 06:58:34 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+  Rendered partials/_navbar.html.erb (0.4ms)
+  Rendered partials/_flash.html.erb (0.3ms)
+Completed 200 OK in 32ms (Views: 29.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/user" for ::1 at 2017-04-06 06:58:56 -0700
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user/index.html.erb within layouts/application
+  Rendered user/index.html.erb within layouts/application (2.2ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.6ms)
+Completed 200 OK in 45ms (Views: 41.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/user/1" for ::1 at 2017-04-06 06:59:00 -0700
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 34ms (Views: 28.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/user/1" for ::1 at 2017-04-06 07:00:36 -0700
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.4ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 39ms (Views: 34.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/user/1" for ::1 at 2017-04-06 07:01:00 -0700
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.4ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 31ms (Views: 26.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/user/1" for ::1 at 2017-04-06 07:01:40 -0700
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 46ms (Views: 40.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 07:01:42 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 07:01:42 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.6ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 47ms (Views: 42.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 07:01:43 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.9ms)
+  Rendered partials/_navbar.html.erb (0.4ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 38ms (Views: 34.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/user" for ::1 at 2017-04-06 07:01:44 -0700
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user/index.html.erb within layouts/application
+  Rendered user/index.html.erb within layouts/application (3.7ms)
+  Rendered partials/_navbar.html.erb (0.4ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 40ms (Views: 35.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 07:01:45 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 07:01:45 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.9ms)
+  Rendered partials/_flash.html.erb (0.8ms)
+Completed 200 OK in 42ms (Views: 38.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/user" for ::1 at 2017-04-06 07:02:36 -0700
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user/index.html.erb within layouts/application
+  Rendered user/index.html.erb within layouts/application (3.2ms)
+  Rendered partials/_navbar.html.erb (0.8ms)
+  Rendered partials/_flash.html.erb (0.7ms)
+Completed 200 OK in 69ms (Views: 64.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 07:02:36 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.8ms)
+  Rendered partials/_navbar.html.erb (0.8ms)
+  Rendered partials/_flash.html.erb (0.8ms)
+Completed 200 OK in 45ms (Views: 41.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 07:02:37 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 07:02:37 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.6ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 36ms (Views: 31.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 07:02:39 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+  Rendered partials/_navbar.html.erb (1.4ms)
+  Rendered partials/_flash.html.erb (0.6ms)
+Completed 200 OK in 47ms (Views: 42.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/login" for ::1 at 2017-04-06 07:02:46 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SzU/wooVAv7NSX/MIzskf/fITB5iicc2WX0W4cOYIRddDQXI+MEAFl96rWEN91ZrdlBA/BxA42tqK+Zi67DmoQ==", "user"=>{"email"=>"mark@email.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mark@email.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 78ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 07:02:47 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 29ms (Views: 26.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/user/2" for ::1 at 2017-04-06 07:10:27 -0700
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (1.3ms)
+  Rendered partials/_navbar.html.erb (0.7ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 94ms (Views: 60.9ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/user" for ::1 at 2017-04-06 07:10:28 -0700
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering user/index.html.erb within layouts/application
+  Rendered user/index.html.erb within layouts/application (5.0ms)
+  Rendered partials/_navbar.html.erb (0.6ms)
+  Rendered partials/_flash.html.erb (0.8ms)
+Completed 200 OK in 54ms (Views: 49.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/user/2" for ::1 at 2017-04-06 07:10:29 -0700
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+  Rendered partials/_navbar.html.erb (0.8ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 49ms (Views: 44.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 07:11:30 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 07:11:30 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 68ms (Views: 63.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 07:11:33 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.0ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 40ms (Views: 35.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/login" for ::1 at 2017-04-06 07:11:40 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TjlJZKJSwbROIDBQEwCIDglN/XvIuL6w8YGu0Q0WaghYAXNu0IbDXNwT4v09zPoaiNXxmbZxmu3C115SJT6tvg==", "user"=>{"email"=>"mark@email.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mark@email.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 74ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 07:11:40 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.3ms)
+  Rendered partials/_navbar.html.erb (0.6ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 31ms (Views: 28.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/user/2" for ::1 at 2017-04-06 07:11:42 -0700
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.6ms)
+Completed 200 OK in 37ms (Views: 33.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/user/2" for ::1 at 2017-04-06 07:12:29 -0700
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+  Rendered partials/_navbar.html.erb (0.6ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 50ms (Views: 45.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/user/2" for ::1 at 2017-04-06 07:14:09 -0700
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.3ms)
+Completed 200 OK in 37ms (Views: 33.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/user/2" for ::1 at 2017-04-06 07:14:14 -0700
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (1.2ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 37ms (Views: 33.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 07:14:18 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 07:14:18 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.7ms)
+Completed 200 OK in 36ms (Views: 32.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 07:14:35 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 30ms (Views: 26.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 07:14:37 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 45ms (Views: 39.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for ::1 at 2017-04-06 07:14:42 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XCDh2RPnLr7gz8KSxEqbx0TkAteMXF9c4vwK+C7ZZrZKGNvTYTMsVnL8ED/qhunTxXwONfKVewHRqvp7BvGhAA==", "user"=>{"email"=>"mark@email.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mark@email.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 74ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 07:14:42 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.6ms)
+Completed 200 OK in 33ms (Views: 29.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 07:15:23 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 07:15:25 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 07:15:25 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 35ms (Views: 31.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/user" for ::1 at 2017-04-06 07:15:29 -0700
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user/index.html.erb within layouts/application
+  Rendered user/index.html.erb within layouts/application (2.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 43ms (Views: 39.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 07:15:30 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.7ms)
+Completed 200 OK in 38ms (Views: 34.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/login" for ::1 at 2017-04-06 07:15:35 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ilB5v5fSZNIyFn2UyKk4zyhaa6S07SgYGDo+1okovNCcaEO15QZmOqAlrznmZUrbqcJnRsokDEUrbM5VoQB7Zg==", "user"=>{"email"=>"mark@mark.mark", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mark@mark.mark"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 71ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 07:15:35 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.5ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 33ms (Views: 30.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/user/1" for ::1 at 2017-04-06 07:15:38 -0700
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (0.6ms)
+  Rendered partials/_navbar.html.erb (0.7ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 42ms (Views: 35.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 07:15:39 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 07:15:39 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 45ms (Views: 40.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 07:16:49 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.5ms)
+  Rendered partials/_navbar.html.erb (0.6ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 43ms (Views: 39.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 07:16:50 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+  Rendered partials/_navbar.html.erb (0.6ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 40ms (Views: 36.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/login" for ::1 at 2017-04-06 07:16:56 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2zCota6ET7Y0yyduxnAC/9+x74TI4ZrPISF+2n5Gzo3NCJK/3FBNXqb49cPovHDrXinjZrYovpISd45ZVm4JOw==", "user"=>{"email"=>"mark@mark.mark", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mark@mark.mark"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 75ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 07:16:57 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.3ms)
+  Rendered partials/_navbar.html.erb (0.6ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 33ms (Views: 29.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/user/1" for ::1 at 2017-04-06 07:16:59 -0700
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+  Rendered partials/_navbar.html.erb (0.6ms)
+  Rendered partials/_flash.html.erb (0.7ms)
+Completed 200 OK in 43ms (Views: 38.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/user/1" for ::1 at 2017-04-06 08:06:43 -0700
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (4.1ms)
+  Rendered partials/_navbar.html.erb (1.1ms)
+  Rendered partials/_flash.html.erb (0.9ms)
+Completed 200 OK in 95ms (Views: 77.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 09:04:39 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 30ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 09:04:39 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.9ms)
+  Rendered partials/_navbar.html.erb (0.8ms)
+  Rendered partials/_flash.html.erb (2.1ms)
+Completed 200 OK in 60ms (Views: 54.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 09:04:40 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (6.2ms)
+  Rendered partials/_navbar.html.erb (1.0ms)
+  Rendered partials/_flash.html.erb (2.2ms)
+Completed 200 OK in 81ms (Views: 73.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for ::1 at 2017-04-06 09:04:47 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"H8NwwLnFWybPt0TUZbzctPKov/TG2E4ePRzV94n7DlYJ+0rKyxFZzl2ElnlLcK6gczCzFrgRakMOSiV0odPJ4A==", "user"=>{"email"=>"mark@email.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mark@email.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 74ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 09:04:47 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.6ms)
+  Rendered partials/_navbar.html.erb (2.0ms)
+  Rendered partials/_flash.html.erb (0.6ms)
+Completed 200 OK in 36ms (Views: 32.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 15:08:41 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MainController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (1.4ms)
+  Rendered partials/_navbar.html.erb (1.0ms)
+  Rendered partials/_flash.html.erb (0.6ms)
+Completed 200 OK in 4344ms (Views: 4309.1ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 15:08:49 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 15:08:49 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.7ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 46ms (Views: 41.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for ::1 at 2017-04-06 15:08:55 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (29.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 64ms (Views: 59.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for ::1 at 2017-04-06 15:09:01 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ur6pBISwu/9+RF43dMRSZFXaL89J9TA3w46whwQ0sWSshpMO9mS5F+x3jJpaCCBw1EIjLTc8FGrw2EAELBx20g==", "user"=>{"email"=>"mark@mark.mark", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mark@mark.mark"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 76ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 15:09:01 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.3ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.5ms)
+Completed 200 OK in 29ms (Views: 26.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/user/1" for ::1 at 2017-04-06 15:09:04 -0700
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.6ms)
+Completed 200 OK in 38ms (Views: 33.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/user/1" for ::1 at 2017-04-06 15:09:12 -0700
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (0.5ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.8ms)
+Completed 200 OK in 36ms (Views: 31.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/logout" for ::1 at 2017-04-06 15:09:13 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 15:09:13 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 39ms (Views: 35.4ms | ActiveRecord: 0.5ms)
+
+
