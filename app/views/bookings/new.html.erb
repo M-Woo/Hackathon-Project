@@ -1,0 +1,33 @@
+<div class="text-center">
+	<h1>Book your spot</h1>
+	<%= form_for @booking, url: bookings_path do |form| %>
+
+		
+		<div class="text-center">
+	<h1>Details regarding your booking</h1>
+
+	<h3 class="text-danger"><%= @spot.name %></h3>
+	<h3 class="text-danger"><%= @spot.capacity %></h3>
+	<h3 class="text-danger"><%= @spot.spot_type %></h3>
+	<h3 class="text-danger"><%= @spot.price %></h3>
+
+</div>
+
+
+		<div class="form-group">
+			<%= form.label :duration %>
+			<%= form.text_field :duration, :class => "form-control" %>
+			<br>
+
+			<%= form.hidden_field :spot_id, :value => @spot.id %>
+			<%= form.submit :class => "btn btn-primary" %>
+		</div>
+
+	<% end %>
+
+</div>
+
+
+
+
+

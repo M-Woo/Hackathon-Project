@@ -16,6 +16,11 @@
 				<li class="list-group-item">
 					<a href="/spots/<%= s.id %>">
 						<%= s.name %>
+						<% if s.booked %>
+							<span class="text-danger">Spot is booked</span>
+						<% else %>
+							<span class="text-success">Spot is open</span>
+						<% end %>
 					</a>
 				</li>
 			<% end %>
@@ -23,6 +28,14 @@
 	<% end %>
 	
 </div>
+
+ <a href="/spots/new">Add a spot</a>
+
+
+
+
+
+
 
 
 
