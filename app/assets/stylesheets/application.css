@@ -14,9 +14,50 @@
  *= require_self
  */
 
+ .botttun {
+    padding: 18px 28px;
+    font-size: 42px; //change this to your desired size
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}
+/*profile*/
+.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+body{
+  /*background-color: rgb(75, 162, 198);*/
+}
+small {
+display: block;
+line-height: 1.428571429;
+color: #999;
+}
+.imgImportant{
+  max-height: 400px;
+  max-width: 400px;
+}
+.profileBox{
+  margin-top:5%;
+  margin-bottom: 1%;
+}
+.divProfile{
+  margin-top: 1%;
+}
+.listSpot{
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+
 /*font*/
 h1 h2 h3 h4 h5 h6{
     font-family: 'Questrial', sans-serif;
+}
+.nomad{
+    font-size: 10em;
+}
+.nomadSmall{
+    font-size: 2em;
 }
 
 /*FORM*/
@@ -67,6 +108,9 @@ margin-bottom: 0 !important;
 }
 .navbar-toggle {
     z-index:3;
+}
+.copyright{
+
 }
 #infowindow{
   padding: 10px;
