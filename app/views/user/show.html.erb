@@ -3,3 +3,23 @@
 
 <h3>Hello, <%= @user.name %></h3>
 <p><%= @user.email %></p>
+
+<div class="text-center">
+
+<% if not @spots or @spots.length == 0 %>
+		<p>No spots exist</p>
+		<h3 class="text-success">Create one!</h3>
+	<% else %>
+		<h3>Spot List</h3>
+		<ul class="list-group">
+			<% @user.spots.each do |s| %>
+				<li class="list-group-item">
+					<a href="/spots/<%= s.id %>">
+						<%= s.name %>
+					</a>
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
+	
+</div>

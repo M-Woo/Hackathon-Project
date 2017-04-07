@@ -1,0 +1,26 @@
+<div class="text-center">
+	<h1>Add a new spot</h1>
+	<%= form_for @spot, url: spots_path do |form| %>
+
+		<div class="form-group">
+			<%= form.label :name %>
+			<%= form.text_field :name, :class => "form-control" %>
+			<br>
+			<%= form.label :address %>
+			<%= form.text_field :address, :class => "form-control" %>
+			<br>
+			<%= form.label :spot_type %>
+			<%= form.text_field :spot_type, :class => "form-control" %>
+			<br> 
+			<%= form.label :capacity %>
+			<%= form.text_field :capacity, :class => "form-control" %>
+			<br>
+			<%= form.label :price %>
+			<%= form.number_field :price, :class => "form-control" %>
+			<br>
+			<%= form.submit :class => "btn btn-primary" %>
+		</div>
+
+	<% end %>
+
+</div>
