@@ -16,7 +16,7 @@ class SpotsController < ApplicationController
 
   def create
   	Spot.create(spot_params)
-    redirect_to spots_path
+    redirect_to root_path
   end
 
   def new
