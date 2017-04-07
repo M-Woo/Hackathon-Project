@@ -4,8 +4,10 @@ class UserController < ApplicationController
   end
 
   def create
-    User.create(user_params)
-    redirect_to root_path
+    newUser = User.create(user_params)
+    # redirect_to :action => :show, :id => User.create(user_params)
+    redirect_to "/login"
+    
   end
 
   def edit
