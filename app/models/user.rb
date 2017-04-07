@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 	has_many :spots
+	has_many :bookings
 	
 	validates :email,
 	presence: true,

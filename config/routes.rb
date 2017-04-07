@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  # get 'bookings/index'
+
+  # get 'bookings/show'
+
+  # get 'bookings/edit'
+
+  # get 'bookings/new'
+
+  # get 'booking/index'
+
+  # get 'booking/show'
+
+  # get 'booking/edit'
+
+  # get 'booking/new'
+
   # get 'spots/index'
 
   # get 'spots/show'
@@ -32,6 +48,7 @@ Rails.application.routes.draw do
  	resources :user
   resources :map
   resources :spots
+  resources :bookings
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
