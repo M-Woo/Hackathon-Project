@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+ .mapList{
+  margin-top: 2%;
+  margin-bottom: 2%;
+ }
 
  .botttun {
     padding: 18px 28px;
@@ -40,6 +44,10 @@ color: #999;
   margin-top:5%;
   margin-bottom: 1%;
 }
+.listBox{
+  margin-top:1%;
+  margin-bottom: 1%;
+}
 .divProfile{
   margin-top: 1%;
 }
@@ -54,6 +62,7 @@ h1 h2 h3 h4 h5 h6{
     font-family: 'Questrial', sans-serif;
 }
 .nomad{
+    margin-top: 1% !important;
     font-size: 10em;
 }
 .nomadSmall{
@@ -1413,6 +1422,11 @@ img {
   -webkit-transition: all .2s ease-in-out;
        -o-transition: all .2s ease-in-out;
           transition: all .2s ease-in-out;
+}
+.img-circle1 {
+  border-radius: 50%;
+  max-width: 500px;
+  max-height: 500px;
 }
 .img-circle {
   border-radius: 50%;
@@ -6321,12 +6335,15 @@ button.close {
     display: block;
     width: 100%;
     text-align: center;
-    background: url('http://placehold.it/1900x500') no-repeat center center scroll;
+    background: url('http://res.cloudinary.com/dy6bqhnor/image/upload/v1491603545/seattle_skyline_x8xru5.png') no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
 }
+
+
+
 
 .headline {
     padding: 120px 0;
