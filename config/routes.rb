@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  # get 'spots/index'
+
+  # get 'spots/show'
+
+  # get 'spots/edit'
+
+  # get 'spots/new'
+
   # get 'user/index'
 
   # get 'user/create'
@@ -23,6 +31,7 @@ Rails.application.routes.draw do
 
  	resources :user
   resources :map
+  resources :spots
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

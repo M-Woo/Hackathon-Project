@@ -1,1 +1,9 @@
  <h1>Home Page</h1>
+
+ Links, so that we have them:
+
+ <a href="/spots/new">Add a spot</a>
+ <% @spots.each do |s| %>
+<a href="/spots/<%= s.id %>">Spot</a>
+ <% end %>
+
