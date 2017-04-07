@@ -1,6 +1,46 @@
-<h1>Login</h1>
+<!-- <h1>Login</h1>
  <%= bootstrap_form_for :user do |f| %>
 	  <%= f.email_field :email, placeholder: " email" %>
 	  <%= f.password_field :password, placeholder: "password" %>
 	  <%= f.submit "Login" %>
  <%end%>
+
+  -->
+
+<%= bootstrap_form_for :user do |f| %>
+  <div class="container text-center">
+  <div class="row center-block center form">
+  	<div class="col-md-12">
+    
+          <form class="form-horizontal" action="" method="POST">
+          <fieldset>
+            <div id="legend">
+              <legend class="text-center formTitle">Login</legend>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+			  <%= f.email_field :email, placeholder: " email" %>                
+			  <p class="help-block">Please provide your Email</p>
+              </div>
+            </div>
+         
+            <div class="control-group">
+              <div class="controls">
+	  			<%= f.password_field :password, placeholder: "password" %>
+                <p class="help-block">Please provide your Password</p>
+              </div>
+            </div>
+         
+            <div class="control-group">
+              <!-- Button -->
+              <div class="controls text-center">
+                <button class="btn btn-success">Login</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+    
+    </div> 
+  </div>
+</div>
+<%end%>
