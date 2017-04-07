@@ -1,31 +1,56 @@
-<div class="text-center">
-	<h1>Book your spot</h1>
-	<%= form_for @booking, url: bookings_path do |form| %>
+<div class="container text-center">
+	<h1>Spot Confirmation</h1>
+	<h3>Congrats you've booked your spot!</h3>
+ 	<div class="row">
+ 		<div class="col-xs-12">
+ 			<%= image_tag("mapshot.png", :alt => "map", :class => "mapImg") %>
+ 		</div>
+ 	</div>
+	<div class="row well">
+		<div class="col-sm-6">
+			<img src="http://callwalsh.com/images/paving-03.jpg">
+		</div>
+		<div class="col-sm-6">
+			<h3><strong>Spot name: </strong><%= @spot.name %>!</h3>
+			<h3><strong>Address: </strong><%= @spot.address %></h3>
+			<h3><strong>Price: </strong><%= @spot.price %></h3>
+			<h3><strong>Time Frame: </strong>2 Days</h3>
+		</div>	
+	</div>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-xs-12">
+			<h4><strong>Type: </strong><%= @spot.spot_type %></h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12" >
+			<h4>This spot has gone unused for two years. Please use it! I need the money.</h4>
+		</div>
+	</div>
+	<br>
+	<br>
 
-		
-		<div class="text-center">
-	<h1>Details regarding your booking</h1>
-
-	<h3 class="text-danger"><%= @spot.name %></h3>
-	<h3 class="text-danger"><%= @spot.capacity %></h3>
-	<h3 class="text-danger"><%= @spot.spot_type %></h3>
-	<h3 class="text-danger"><%= @spot.price %></h3>
-
-</div>
-
-
-		<div class="form-group">
-			<%= form.label :duration %>
+	<div class="row text-center">
+		<div class="col-xs-12">
+		<%= form_for @booking, url: bookings_path do |form| %>
+			<div class="form-group">
+<!-- 			<%= form.label :duration %>
 			<%= form.text_field :duration, :class => "form-control" %>
-			<br>
+			<br> -->
 
 			<%= form.hidden_field :spot_id, :value => @spot.id %>
-			<%= form.submit :class => "btn btn-primary" %>
+			<%= form.submit "Start Navigation", :class => "btn btn-primary" %>
 		</div>
+		
+			<% end %>
+		</div>
+	</div>
 
-	<% end %>
+ </div>
 
-</div>
+
 
 
 
