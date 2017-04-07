@@ -13,3 +13,197 @@
  *= require_tree .
  *= require_self
  */
+/*ALERT*/
+.alert{
+	position: absolute;
+	margin-top: .5%;
+	margin-left: 47%;
+}
+/*#map {
+	height: 100vh;
+	width: 100%;
+}*/
+.navbar{
+margin-bottom: 0 !important;
+}
+.navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+}
+.navbar-toggle {
+    z-index:3;
+}
+#infowindow{
+  padding: 10px;
+}
+
+
+#map {
+height: 100%;
+}
+html, body {
+height: 100%;
+margin: 0;
+padding: 0;
+}
+#description {
+font-family: Roboto;
+font-size: 15px;
+font-weight: 300;
+}
+
+#infowindow-content .title {
+font-weight: bold;
+}
+
+#infowindow-content {
+display: none;
+}
+
+#map #infowindow-content {
+display: inline;
+}
+
+.pac-card {
+margin: 10px 10px 0 0;
+border-radius: 2px 0 0 2px;
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+outline: none;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+background-color: #fff;
+font-family: Roboto;
+}
+
+#pac-container {
+padding-bottom: 12px;
+margin-right: 12px;
+}
+
+.pac-controls {
+display: inline-block;
+padding: 5px 11px;
+}
+
+.pac-controls label {
+font-family: Roboto;
+font-size: 13px;
+font-weight: 300;
+}
+
+#pac-input {
+background-color: #fff;
+font-family: Roboto;
+font-size: 15px;
+font-weight: 300;
+margin-left: 33%;
+padding: 0 11px 0 13px;
+text-overflow: ellipsis;
+width: 400px;
+height: 35px;
+}
+
+#pac-input:focus {
+border-color: #4d90fe;
+}
+
+#title {
+color: #fff;
+background-color: #4d90fe;
+font-size: 25px;
+font-weight: 500;
+padding: 6px 12px;
+}
+#target {
+width: 345px;
+}
+
+
+/*about*/
+
+.stylish-panel {
+    padding: 20px 0;
+    text-align: center;
+}
+.stylish-panel > div > div{
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+.stylish-panel > div:hover > div{
+    margin-top: -10px;
+    border: 1px solid rgb(200, 200, 200);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+    background: rgba(200, 200, 200, 0.1);
+    transition: 0.5s;
+}
+
+.stylish-panel > div:hover img {
+    border-radius: 50%;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+
+/*Footer*/
+.social:hover {
+     -webkit-transform: scale(1.1);
+     -moz-transform: scale(1.1);
+     -o-transform: scale(1.1);
+ }
+ .social {
+     -webkit-transform: scale(0.8);
+     /* Browser Variations: */
+     
+     -moz-transform: scale(0.8);
+     -o-transform: scale(0.8);
+     -webkit-transition-duration: 0.5s;
+     -moz-transition-duration: 0.5s;
+     -o-transition-duration: 0.5s;
+ }
+
+/*
+    Multicoloured Hover Variations
+*/
+ 
+ #social-fb:hover {
+     color: #3B5998;
+ }
+ #social-tw:hover {
+     color: #4099FF;
+ }
+ #social-gp:hover {
+     color: #d34836;
+ }
+ #social-em:hover {
+     color: #f39c12;
+ }
+
+ .footer{
+ 	background-color: white;
+   	left: 0;
+    bottom: 0;
+    overflow: hidden;
+    position: fixed; 
+ }
+    
+/*TEST*/
+    
+
+
+
+
+
+    
+    
+    
+    
+    

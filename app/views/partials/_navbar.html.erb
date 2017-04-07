@@ -1,17 +1,41 @@
-<nav class="navbar navbar-default">
-	<ul class="nav navbar-nav navbar">
-    	<li class="navbar-left"><a href="/" style="color: black">Home</a></li>
-    	<li class="navbar-left"><a href="/main/about" style="color: black">About</a></li>
-    	<li class="navbar-left"><a href="/map" style="color: black">Map</a></li>
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>    
+  </div>
+  <a class="navbar-brand" href="/">AIRPNP</a>
+  <div class="navbar-collapse collapse">
+	<ul class="nav navbar-nav navbar-right" >
+		<a class="navbar-brand" href="/">
+			<img alt="Brand" src="https://geniusmoney.co.uk/img/GM-Logo-small.png">
+		</a>
+
+		<li><a href="/main/about" style="color: black">About</a></li>
+		<li><a href="/map" onclick="getLocation()" style="color: black">Map</a></li>
 
 
-	  <% if @current_user%>
-	  <li class="navbar-right"><a href="/logout" style="color: black">Logout</a></li>
-	  <li class="navbar-right"><a href="/user/<%=@current_user.id%>" style="color: black">Profile</a></li>
-	  <%end%>
-	  <% if !@current_user%>
-	  <li class="navbar-right"><a href="/login" style="color: black">Login</a></li>
-	  <li class="navbar-right"><a href="/user" style="color: black">Signup</a></li>
-	  <%end%>
+		<% if @current_user%>
+		<li><a href="/logout" style="color: black">Logout</a></li>
+		<li><a href="/user/<%=@current_user.id%>" style="color: black">Profile</a></li>
+		<%end%>
+		<% if !@current_user%>
+		<li><a href="/login" style="color: black">Login</a></li>
+		<li><a href="/user" style="color: black">Signup</a></li>
+		<%end%>
 	</ul>
+  </div>
 </nav>
+
+
+ <div class="text-center center-block footer">
+    <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+    <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+    <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+    <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+</div>
+
+
