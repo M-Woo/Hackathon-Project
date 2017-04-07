@@ -2904,3 +2904,40 @@ Processing by UserController#show as HTML
 Completed 200 OK in 58ms (Views: 53.4ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/logout" for ::1 at 2017-04-06 20:07:35 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2017-04-06 20:07:35 -0700
+Processing by MainController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering main/index.html.erb within layouts/application
+  Rendered main/index.html.erb within layouts/application (0.5ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.4ms)
+Completed 200 OK in 49ms (Views: 45.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/user" for ::1 at 2017-04-06 20:07:36 -0700
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user/index.html.erb within layouts/application
+  Rendered user/index.html.erb within layouts/application (3.4ms)
+  Rendered partials/_navbar.html.erb (0.5ms)
+  Rendered partials/_flash.html.erb (0.8ms)
+Completed 200 OK in 48ms (Views: 43.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/user" for ::1 at 2017-04-06 20:11:08 -0700
+Processing by UserController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user/index.html.erb within layouts/application
+  Rendered user/index.html.erb within layouts/application (3.0ms)
+  Rendered partials/_navbar.html.erb (0.9ms)
+  Rendered partials/_flash.html.erb (0.7ms)
+Completed 200 OK in 65ms (Views: 56.6ms | ActiveRecord: 0.6ms)
+
+
