@@ -1,3 +1,4 @@
+
  <div class="container">
 
   <header class="header-image">
@@ -7,45 +8,48 @@
             </div>
         </div>
     </header>
+
  	<div class="row">
- 		<div class="col-xs-12">
+ 		<div class="col-xs-12 text-center mapList">
  			<%= image_tag("mapshot.png", :alt => "map", :class => "mapImg") %>
  		</div>
  	</div>
-	<div class="row well">
-		<div class="col-sm-6">
-			<img src="http://callwalsh.com/images/paving-03.jpg">
-		</div>
-		<div class="col-sm-6">
-			<h3><strong>Spot name: </strong><%= @spot.name %>!</h3>
-			<h3><strong>Address: </strong><%= @spot.address %></h3>
-			<h3><strong>Price: </strong><%= @spot.price %></h3>
-			<h3><strong>Time Frame: </strong>2 Days</h3>
-		</div>	
-	</div>
-	<br>
-	<br>
-	<div class="row">
-		<div class="col-xs-12">
-			<h4><strong>Type: </strong><%= @spot.spot_type %></h4>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12" >
-			<h4>This spot has gone unused for two years. Please use it! I need the money.</h4>
-		</div>
-	</div>
-	<br>
-	<br>
+
+<div class="container text-center listBox">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 text-center mapList"">
+                    	<img src="http://callwalsh.com/images/paving-03.jpg">           
+                    </div>
+                    <div class="col-sm-6 col-md-8 divProfile">
+                        <h3><%= @spot.name %></h3>
+                        <small><cite title="San Francisco, USA"><i class="glyphicon glyphicon-map-marker">
+                        </i>Seattle, WA </cite></small>
+                        <p>
+                            <i class="glyphicon glyphicon-envelope"></i><%= @spot.address %>
+                            <br />
+                            <i class="glyphicon glyphicon-globe"></i><%= @spot.price %>
+                            <br />
+                            <i class="glyphicon glyphicon-globe"></i><%= @spot.spot_type %>
+                            <br />
+                            <i class="glyphicon glyphicon-gift"></i>2 Days</p>
+                            <br />
+                            <p>This spot has gone unused for two years. Please use it! I need the money.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 	<div class="row text-center">
 		<div class="col-xs-12">
 			<button onclick="window.location='/bookings/new?spot_id=<%= @spot.id %>';" class="paypalbtn"><img src="https://www.paypalobjects.com/webstatic/icon/favicon.ico"><strong>Book with PayPal</strong></button>
 		</div>
 	</div>
-
- </div>
-
 
 <!-- <div class="text-center">
 	<h1>Welcome to <%= @spot.name %>!</h1>
