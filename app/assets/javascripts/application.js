@@ -611,21 +611,21 @@ function showPosition(position) {
 
 
     	var locations = [
-		  ["<div class='text-center'>16015 Cleveland St, Redmond, WA 98052 <br>" + "<a href='/'>Info</a></div>", 47.6744982,  -122.1270461],
-		  ["<div class='text-center'>2121 6th Ave, Seattle, WA 98121 <br>" + "<a href='/'>Info</a></div>", 47.6153327, -122.3398556],
-		  ["<div class='text-center'>1000 8th Ave, Seattle, WA 98104 <br>" + "<a href='/'>Info</a></div>", 47.60855309999999, -122.3281102],
-		  ["<div class='text-center'>430 Eighth Ave N, Seattle, WA 98109 <br>" + "<a href='/'>Info</a></div>", 47.6231545, -122.3404723],
-		  ["<div class='text-center'>3249 Conkling Pl W, Seattle, WA 98119 <br>" + "<a href='/'>Info</a></div>", 47.648971, -122.369671],
-		  ["<div class='text-center'>124 N 103rd St, Seattle, WA 98133 <br>" + "<a href='/'>Info</a></div>", 47.7039909, -122.3564095],
-		  ["<div class='text-center'>6230 Corson Ave S, Seattle, WA 98108 <br>" + "<a href='/'>Info</a></div>", 47.5474529, -122.3214487],
-		  ["<div class='text-center'>10015 10th Ave SW, Seattle, WA 98146 <br>" + "<a href='/'>Info</a></div>", 47.51329399999999, -122.348066],
-		  ["<div class='text-center'>801 E Thomas St, Seattle, WA 98102 <br>" + "<a href='/'>Info</a></div>", 47.6209277, -122.3218396],
-		  ["<div class='text-center'>2100 Western Ave, Seattle, WA 98121 <br>" + "<a href='/'>Info</a></div>", 47.6114621, -122.3448254],
-		  ["<div class='text-center'>1301 4th Ave, Seattle, WA 98101 <br>" + "<a href='/'>Info</a></div>", 47.6082156, -122.335365],
-		  ["<div class='text-center'>1230 5th Ave, Seattle, WA 98101 <br>" + "<a href='/'>Info</a></div>", 47.6083581, -122.3334327],
-		  ["<div class='text-center'>Port Blakely, Bainbridge Island, WA 98110 <br>" + "<a href='/'>Info</a></div>", 47.6249, -122.5210],
-		  ["<div class='text-center'>3851 83rd Ave SE, Mercer Island, WA 98040 <br>" + "<a href='/'>Info</a></div>", 47.575213, -122.22868],
-		  ["<div class='text-center'>11660 Main St, Bellevue, WA 98005 <br>" + "<a href='/'>Info</a></div>", 47.6103263, -122.182936]
+		  ["<div class='text-center'>16015 Cleveland St, Redmond, WA 98052 <br>" + "<a href='/spots/13'>Info</a></div>", 47.6744982,  -122.1270461],
+		  ["<div class='text-center'>2121 6th Ave, Seattle, WA 98121 <br>" + "<a href='/spots/13'>Info</a></div>", 47.6153327, -122.3398556],
+		  ["<div class='text-center'>1000 8th Ave, Seattle, WA 98104 <br>" + "<a href='/spots/13'>Info</a></div>", 47.60855309999999, -122.3281102],
+		  ["<div class='text-center'>430 Eighth Ave N, Seattle, WA 98109 <br>" + "<a href='/spots/13'>Info</a></div>", 47.6231545, -122.3404723],
+		  ["<div class='text-center'>3249 Conkling Pl W, Seattle, WA 98119 <br>" + "<a href='/spots/13'>Info</a></div>", 47.648971, -122.369671],
+		  ["<div class='text-center'>124 N 103rd St, Seattle, WA 98133 <br>" + "<a href='/spots/13'>Info</a></div>", 47.7039909, -122.3564095],
+		  ["<div class='text-center'>6230 Corson Ave S, Seattle, WA 98108 <br>" + "<a href='/spots/13'>Info</a></div>", 47.5474529, -122.3214487],
+		  ["<div class='text-center'>10015 10th Ave SW, Seattle, WA 98146 <br>" + "<a href='/spots/13'>Info</a></div>", 47.51329399999999, -122.348066],
+		  ["<div class='text-center'>801 E Thomas St, Seattle, WA 98102 <br>" + "<a href='/spots/13'>Info</a></div>", 47.6209277, -122.3218396],
+		  ["<div class='text-center'>2100 Western Ave, Seattle, WA 98121 <br>" + "<a href='/spots/13'>Info</a></div>", 47.6114621, -122.3448254],
+		  ["<div class='text-center'>1301 4th Ave, Seattle, WA 98101 <br>" + "<a href='/spots/13'>Info</a></div>", 47.6082156, -122.335365],
+		  ["<div class='text-center'>1230 5th Ave, Seattle, WA 98101 <br>" + "<a href='/spots/13'>Info</a></div>", 47.6083581, -122.3334327],
+		  ["<div class='text-center'>Port Blakely, Bainbridge Island, WA 98110 <br>" + "<a href='/spots/13'>Info</a></div>", 47.6249, -122.5210],
+		  ["<div class='text-center'>3851 83rd Ave SE, Mercer Island, WA 98040 <br>" + "<a href='/spots/13'>Info</a></div>", 47.575213, -122.22868],
+		  ["<div class='text-center'>11660 Main St, Bellevue, WA 98005 <br>" + "<a href='/spots/13'>Info</a></div>", 47.6103263, -122.182936]
 		];
 
 		var infowindow = new google.maps.InfoWindow();
